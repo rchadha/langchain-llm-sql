@@ -3,3 +3,5 @@ langchain_community
 langchain_openai
 sqlalchemy
 pyodbc
+flask
+flask-cors

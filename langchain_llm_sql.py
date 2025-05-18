@@ -31,4 +31,9 @@ agent = create_sql_agent(
     verbose=True
 )
 
-print(agent.run("What are the names of the employees who live in Canada?"))
+def query_database(query_string):
+    # Use the agent to run the query
+    result = agent.run(query_string)
+    return result
+
+# print(agent.run("What are the names of the employees who live in Canada?"))
