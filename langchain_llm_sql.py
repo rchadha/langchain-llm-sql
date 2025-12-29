@@ -2,8 +2,6 @@
 from langchain_openai import ChatOpenAI
 from langchain_community.utilities import SQLDatabase
 from langchain_community.agent_toolkits import create_sql_agent
-from langchain.agents.agent_types import AgentType
-from langchain_community.utilities import SQLDatabase
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from dotenv import load_dotenv
 import os
@@ -27,7 +25,7 @@ sql_toolkit.get_tools()
 agent = create_sql_agent(
     llm=llm,
     toolkit=sql_toolkit,
-    agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+    agent_type="zero-shot-react-description",
     verbose=True
 )
 

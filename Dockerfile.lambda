@@ -1,0 +1,22 @@
+FROM public.ecr.aws/lambda/python:3.11
+
+# Install build dependencies for numpy and other packages
+RUN yum install -y gcc gcc-c++ make && yum clean all
+
+# Upgrade pip to latest version to ensure we can use pre-built wheels
+RUN pip install --upgrade pip
+
+# Copy requirements and install dependencies
+COPY requirements.txt ${LAMBDA_TASK_ROOT}/
+RUN pip install --no-cache-dir -r ${LAMBDA_TASK_ROOT}/requirements.txt
+
+# Copy application code
+COPY app.py ${LAMBDA_TASK_ROOT}/
+COPY langchain_llm_sql.py ${LAMBDA_TASK_ROOT}/
+COPY lambda_handler.py ${LAMBDA_TASK_ROOT}/
+
+# Copy database file
+COPY Chinook_Sqlite.sqlite* ${LAMBDA_TASK_ROOT}/
+
+# Set the CMD to your Lambda handler
+CMD [ "lambda_handler.handler" ]

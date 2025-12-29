@@ -1,0 +1,35 @@
+# Virtual environments
+langchain-llm-sql/
+venv/
+env/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CSV files (if you don't need them in container)
+*.csv
+
+# Local development files
+.env.local
+my_transactions.db
+
+# Documentation
+README.md
