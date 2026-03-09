@@ -26,7 +26,8 @@ agent = create_sql_agent(
     llm=llm,
     toolkit=sql_toolkit,
     agent_type="zero-shot-react-description",
-    verbose=True
+    verbose=True,
+    handle_parsing_errors=True
 )
 
 def query_database(query_string):
